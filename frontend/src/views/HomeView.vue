@@ -164,8 +164,8 @@
 
 .title {
   position: relative;
-  margin-top: 10vh;
-  margin-left: -80vh;
+  margin-top: 5vw;
+  margin-left: -41vw;
   font-weight: 300;
   font-family: 'Syncopate-Bold';
   font-size: 4vw;
