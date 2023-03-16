@@ -1,33 +1,15 @@
 
 <script>
-// Получаем элемент с классом .cursor
-var cursor = document.querySelector(".cursor");
-  
-  // Функция для перемещения элемента за мышью
-  function moveCursor(e) {
-    // Получаем координаты мыши
-    var mouseX = e.clientX;
-    var mouseY = e.clientY;
-    
-    // Перемещаем элемент с помощью свойства transform
-    // Отнимаем половину размера элемента для центрирования
-    cursor.style.transform = "translate(" + (mouseX - 15) + "px," + (mouseY - 15) + "px)";
-    
-  }
-  
-  // Добавляем обработчик события mousemove для всего документа
-  document.addEventListener("mousemove", moveCursor);
-
-
 export default {
     data() {
         return {
             drawer: false,
             links: [
-                { title: "About Us", icon: "mdi-information", url: "/about" },
+                { title: "About Us", icon: "mdi-information", url: "/" },
                 { title: "Cars", icon: "mdi-car", url: "/cars" },
                 { title: "Orders", icon: "mdi-bookmark-multiple-outline", url: "/orders" },
                 { title: "Log In", icon: "mdi-login", url: "/login" },
+                { title: "Registration", icon: "mdi-face", url: "/registration" },
             ]
         }
     }

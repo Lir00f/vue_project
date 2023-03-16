@@ -21,6 +21,11 @@ name: 'about',
 component: AboutView
 },
 {
+    path:"/registration",
+    name: "reg",
+    component: RegistrationView
+    },
+{
 path:"/Car/:id",
 name:"Car",
 component: CarView
