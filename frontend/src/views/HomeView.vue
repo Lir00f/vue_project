@@ -40,7 +40,7 @@
   bottom: 0;
   left: 0;
   margin-bottom: 5.2vw;
-  margin-left: 370px;
+  margin-left: 19vw;
 }
 
 .lime3 {
@@ -48,7 +48,7 @@
   bottom: 0;
   left: 0;
   margin-bottom: 5vw;
-  margin-left: 640px;
+  margin-left: 35vw;
 }
 
 .line {
@@ -64,8 +64,11 @@
   bottom: 0;
   left: 0;
   height: 20%;
-  margin-left: 50px;
-  color: white;
+  margin-left: 2.5vw;
+  background-color: #ffffff;
+  background-image: linear-gradient(-90deg,#ffffff, #a1a1a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 2.5vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
@@ -76,7 +79,7 @@
   bottom: 0;
   left: 0;
   height: 13.5%;
-  margin-left: 50px;
+  margin-left: 2.5vw;
   color: #ccc;
   font-size: 1.25vw;
   font-family: 'Syncopate-Bold', sans-serif;
@@ -87,8 +90,11 @@
   bottom: 0;
   left: 0;
   height: 20%;
-  margin-left: 420px;
-  color: white;
+  margin-left: 22.5vw;
+  background-color: #ffffff;
+  background-image: linear-gradient(-90deg,#ffffff, #a1a1a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 2.5vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
@@ -99,7 +105,7 @@
   bottom: 0;
   left: 0;
   height: 13.5%;
-  margin-left: 420px;
+  margin-left: 22.5vw;
   color: #ccc;
   font-size: 1.25vw;
   font-family: 'Syncopate-Bold', sans-serif;
@@ -110,8 +116,11 @@
   bottom: 0;
   left: 0;
   height: 20%;
-  margin-left: 710px;
-  color: white;
+  margin-left: 37.5vw;
+  background-color: #ffffff;
+  background-image: linear-gradient(-90deg,#ffffff, #a1a1a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 2.5vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
@@ -122,7 +131,7 @@
   bottom: 0;
   left: 0;
   height: 13.5%;
-  margin-left: 710px;
+  margin-left: 37.5vw;
   color: #ccc;
   font-size: 1.25vw;
   font-family: 'Syncopate-Bold', sans-serif;
