@@ -39,7 +39,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-bottom: 100px;
+  margin-bottom: 5.2vw;
   margin-left: 370px;
 }
 
@@ -47,15 +47,15 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-bottom: 100px;
+  margin-bottom: 5vw;
   margin-left: 640px;
 }
 
 .line {
-  width: 4px;
-  height: 70px;
+  width: 0.2vw;
+  height: 3.5vw;
   background-color: rgb(255, 255, 255);
-  border-radius: 2px;
+  border-radius: 1vw;
 }
 
 
@@ -66,7 +66,7 @@
   height: 20%;
   margin-left: 50px;
   color: white;
-  font-size: 50px;
+  font-size: 2.5vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
 }
@@ -78,7 +78,7 @@
   height: 13.5%;
   margin-left: 50px;
   color: #ccc;
-  font-size: 20px;
+  font-size: 1.25vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
 }
@@ -89,7 +89,7 @@
   height: 20%;
   margin-left: 420px;
   color: white;
-  font-size: 50px;
+  font-size: 2.5vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
 }
@@ -101,7 +101,7 @@
   height: 13.5%;
   margin-left: 420px;
   color: #ccc;
-  font-size: 20px;
+  font-size: 1.25vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
 }
@@ -112,7 +112,7 @@
   height: 20%;
   margin-left: 710px;
   color: white;
-  font-size: 50px;
+  font-size: 2.5vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
 }
@@ -124,23 +124,23 @@
   height: 13.5%;
   margin-left: 710px;
   color: #ccc;
-  font-size: 20px;
+  font-size: 1.25vw;
   font-family: 'Syncopate-Bold', sans-serif;
   font-weight: 400;
 }
 
 .button {
     position: fixed; /* Позиционирование кнопки относительно окна */
-    bottom: 80px; /* Отступ снизу */
+    bottom: 5vw; /* Отступ снизу */
     right: -3px; /* Отступ справа */
-    width: 300px; /* Ширина кнопки */
-    height: 100px; /* Высота кнопки */
+    width: 15vw; /* Ширина кнопки */
+    height: 5vw; /* Высота кнопки */
     background-color: transparent; /* Цвет фона кнопки */
     color: white; /* Цвет текста кнопки */
     border-top-left-radius: 25px; /* Закругление левого верхнего угла */
     border-bottom-left-radius: 25px; /* Закругление левого нижнего угла */
     border: 2px solid white; /* Обводка кнопки */
-    font-size: 25px;
+    font-size: 1.2vw;
     font-family: 'Syncopate-Bold', sans-serif;
     align-items: center; /* Выравнивание элементов по вертикали */
   }
@@ -165,10 +165,10 @@
 .title {
   position: relative;
   margin-top: 10vh;
-  margin-left: -67vh;
+  margin-left: -80vh;
   font-weight: 300;
   font-family: 'Syncopate-Bold';
-  font-size: 5em;
+  font-size: 4vw;
   background-color: #ffffff;
   background-image: linear-gradient(-90deg,#3088cf, #5900ff, red);
   -webkit-background-clip: text;

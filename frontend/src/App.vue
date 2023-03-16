@@ -5,7 +5,7 @@ export default {
         return {
             drawer: false,
             links: [
-                { title: "About Us", icon: "mdi-information", url: "/" },
+                { title: "About Us", icon: "mdi-information", url: "/about" },
                 { title: "Cars", icon: "mdi-car", url: "/cars" },
                 { title: "Orders", icon: "mdi-bookmark-multiple-outline", url: "/orders" },
                 { title: "Log In", icon: "mdi-login", url: "/login" },
