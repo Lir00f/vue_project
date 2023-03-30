@@ -12,10 +12,11 @@
         <div class="measurement3">289 km/h</div>
         <div class="description3">Max Speed</div>
       </v-row>
-      <button class="button">Add To Cart</button>
+      <button class="button"><router-link to="/more" class="button"></router-link>Learn more</button>
     </v-container>
   </div>
 </template>
+
 
 <style>
  .button > img {
@@ -54,7 +55,7 @@
 .line {
   width: 0.2vw;
   height: 3.5vw;
-  background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(-180deg,#ffffff, #a1a1a1);
   border-radius: 1vw;
 }
 

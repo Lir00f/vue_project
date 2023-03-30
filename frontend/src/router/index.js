@@ -7,9 +7,14 @@ import LoginView from '../views/Auth/LoginView.vue'
 import RegistrationView from '../views/Auth/RegistrationView.vue'
 import OrdersView from '../views/User/OrdersView.vue'
 import AboutView from '../views/AboutView.vue'
-
+import MoreHome from '../views/Cars/MoreHome.vue'
 
 const routes = [
+    {
+        path: '/more',
+        name: 'more',
+        component: MoreHome
+        },
 {
 path: '/',
 name: 'home',

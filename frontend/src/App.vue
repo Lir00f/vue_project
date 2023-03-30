@@ -17,28 +17,43 @@ export default {
 </script>
 
 <template>
-  <v-app >
+  <v-app>
   <v-navigation-drawer app v-model="drawer">
-    <v-list-item-title class="title">BMW</v-list-item-title><v-list-item-subtitle>Epitome of style and speed!</v-list-item-subtitle>
-    <v-list-item
+  <v-list-item>
+  <v-list-item-content>
+  <v-list-item-title class="title">
+      BMW
+  </v-list-item-title>
+  <v-list-item-subtitle>
+    Epitome Of Style And Speed!
+  </v-list-item-subtitle>
+  </v-list-item-content>
+  </v-list-item>
+<v-divider></v-divider>
+<v-list dense>
+<v-list-item
 v-for="link in links"
-:key="link.title"
-:to="link.url"
+:key="link.title" :to="link.url"
 >
 <template v-slot:prepend>
 <v-icon :icon="link.icon"></v-icon>
 </template>
 <v-list-item-title>{{ link.title }}</v-list-item-title>
 </v-list-item>
+</v-list>
 </v-navigation-drawer>
-<v-app-bar app dark color="primary">
+<v-app-bar app dark color=primary>
 <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+  <v-toolbar-title>
+  <v-btn to="/" class="hidden-sm-and-down">
+  Home
+  </v-btn>
+  </v-toolbar-title>
 <v-spacer></v-spacer>
 <v-toolbar-items class="hidden-sm-and-down">
-  <v-btn
+<v-btn
 v-for="link in links"
-:key="link.title"
-:to="link.url"
+:key="link.title" :to="link.url"
 >
 <v-icon
 start
@@ -48,26 +63,20 @@ start
 </v-btn>
 </v-toolbar-items>
 </v-app-bar>
-<v-main>
-<router-view></router-view>
-</v-main>
+  <v-main>
+  <router-view></router-view>
+  </v-main>
 </v-app>
 </template>
-
 <style>
 ::-webkit-scrollbar {
   display: none;
 }
-.cursor {
-    position: fixed; /* Позиция по отношению к окну */
-    top: 0; /* Начальное положение сверху */
-    left: 0; /* Начальное положение слева */
-    width: 30px; /* Ширина кружочка */
-    height: 30px; /* Высота кружочка */
-    border-radius: 50%; /* Форма кружочка */
-    background-color: red; /* Цвет кружочка */
-    opacity: 0.5; /* Прозрачность кружочка */
-    cursor: none; /* Скрытие стандартного курсора */
-    pointer-events: none; /* Игнорирование кликов по кружочку */
-  }
+
+
+.v-app-bar {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 </style>

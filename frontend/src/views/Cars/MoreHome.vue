@@ -1,32 +1,50 @@
 <template>
     <v-container>
-        <h1 class="text--secondary mb-3 mt-3">My ads</h1>
-        <v-card v-for="ad in ads" :key="ad.id" class="mx-auto" max-width="1000">
-            <v-row>
-                <v-img :src="ad.src" height="175px"></v-img>
-                <v-spacer></v-spacer>
-            </v-row>
-            <v-row>
-                <v-card-text>
-                    <h2 class="text--primary">{{ ad.title }}</h2>
-                    <p>{{ ad.desc }}</p>
-                </v-card-text>
-                <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="primary" variant="text" :to="'/ad/' + ad.id">
-                        Open
-                    </v-btn>
-                    <v-spacer></v-spacer>
-                </v-card-actions>
-            </v-row>
-        </v-card>
+      <v-row justify="center">
+        <v-col cols="12" xs="12">
+          <v-carousel>
+            <v-carousel-item v-for="ad in ads"
+            :key="ad.id"
+            :src="ad.src" cover>
+      <div class="ad-link">
+        <v-btn class="error" :to="'/ad/' + ad.id">
+            {{ ad.title }}
+        </v-btn>
+    </div>
+    </v-carousel-item>
+          </v-carousel>
+        </v-col>
+      </v-row>
     </v-container>
-</template>
-<script>
-export default {
+    <v-container grid-list-lg>
+      <v-row justify="center">
+        <v-col cols="12" sm="6" md="4" xs="12" v-for="ad in ads" :key="ad.id">
+          <v-card>
+            <v-img :src="ad.src" height="200px"></v-img>
+            <v-card-title primary-title>
+              <div>
+                <h3 class="headline mb0">{{ ad.title }}</h3>
+                <div>{{ ad.desc }}</div>
+              </div>
+            </v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn text :to="'/ad/' + ad.id">Open</v-btn>
+              <v-btn raised color="primary">
+                Buy
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </template>
+  
+  <script>
+  export default {
     data() {
-        return {
-            ads: [
+      return {
+        ads: [
           {
             title: "BMW M5 Competition",
             desc: "Новые Автомобили M BMW 5 Серии",
@@ -69,8 +87,21 @@ export default {
             src: "https://www.bmw.ru/content/dam/bmw/common/all-models/m-series/x7-m60i/2022/highlights/bmw-x-series-x7-m60i-sp-desktop.jpg/jcr:content/renditions/cq5dam.resized.img.1680.large.time1648803097402.jpg",
             id: "4"
           }
-            ],
-        };
-    },
-};
-</script>
+        ]
+      }
+    }
+  }
+  </script>
+  
+  <style scoped>
+  .ad-link {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    background: rgb(0, 0, 0, 0.5);
+    transform: translate(-50%, 0);
+    padding: 5px 15px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  </style>
