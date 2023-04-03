@@ -22,10 +22,10 @@ export default {
   <v-list-item>
   <v-list-item-content>
   <v-list-item-title class="title">
-      BMW
+      КИПУ
   </v-list-item-title>
   <v-list-item-subtitle>
-    Epitome Of Style And Speed!
+      Учебный проект
   </v-list-item-subtitle>
   </v-list-item-content>
   </v-list-item>
@@ -42,7 +42,7 @@ v-for="link in links"
 </v-list-item>
 </v-list>
 </v-navigation-drawer>
-<v-app-bar app dark color=primary>
+<v-app-bar app dark color="primary">
 <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
   <v-toolbar-title>
   <v-btn to="/" class="hidden-sm-and-down">
