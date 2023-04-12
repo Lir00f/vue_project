@@ -15,7 +15,7 @@
                         <v-list-item-subtitle>>{{ order.phone }}</v-list-item-subtitle>
                         <template v-slot:append>
                                 <v-list-item-action>
-    		<v-btn :to="'/ad/' + order.adId" class="primary">Open</v-btn>
+    		<v-btn :to="'/car/' + order.adId" class="primary">Open</v-btn>
         </v-list-item-action>
                         </template>
                     </v-list-item>

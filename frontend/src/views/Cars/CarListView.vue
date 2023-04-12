@@ -1,27 +1,63 @@
 <template>
   <v-container>
-      <h1 class="text--secondary mb-3 mt-3">Our Cars</h1>
-      <v-card v-for="ad in ads" :key="ad.id" class="mx-auto" max-width="1000">
-          <v-row>
-              <v-img :src="ad.src" height="175px"></v-img>
-              <v-spacer></v-spacer>
-          </v-row>
-          <v-row>
-              <v-card-text>
-                  <h2 class="text--primary">{{ ad.title }}</h2>
-                  <p>{{ ad.desc }}</p>
-              </v-card-text>
-              <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="primary" variant="text" :to="'/ad/' + ad.id">
-                      Open
-                  </v-btn>
-                  <v-spacer></v-spacer>
-              </v-card-actions>
-          </v-row>
-      </v-card>
+    <h1 class="text--secondary mb-3 mt-3 text-center">Our Cars</h1>
+    <v-card v-for="ad in ads" :key="ad.id" class="mx-auto" max-width="1000">
+      <v-img :src="ad.src" height="300px"></v-img>
+      <v-card-text>
+        <h2 class="text--primary text-center">{{ ad.title }}</h2>
+        <p  class="text-center" >{{ ad.desc }}</p>
+      </v-card-text>
+      <v-card-actions class="d-flex justify-center">
+        <v-btn color="primary" variant="text" :to="'/car/' + ad.id">
+          Open
+        </v-btn>
+      </v-card-actions>
+    </v-card>
   </v-container>
 </template>
+
+<style scoped>
+/* Добавьте стили, чтобы заголовок "Our Cars" также был центрирован по горизонтали */
+.text--secondary {
+  font-size: 24px;
+  font-weight: bold;
+  color: #777;
+}
+
+.text--primary {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+}
+
+v-img {
+  margin-bottom: 16px;
+}
+
+v-btn {
+  text-transform: none;
+  margin-top: 16px;
+}
+
+/* Добавлены стили для центрирования кнопки "Open" и заголовков моделей */
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+</style>
+
+
 <script>
 export default {
     data() {
