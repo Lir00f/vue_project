@@ -12,7 +12,17 @@ export default {
                 { title: "Registration", icon: "mdi-face", url: "/registration" },
             ]
         }
+    },
+    computed: {
+    error () {
+      return this.$store.getters.error
+   }
+},
+methods: {
+    closeError () {
+      this.$store.dispatch('clearError')
     }
+ }
 }
 </script>
 
@@ -64,6 +74,22 @@ export default {
     <v-main>
       <router-view></router-view>
     </v-main>
+    <v-snackbar
+v-model="error"
+multi-line
+:timeout="2000"
+color="primary"
+>
+{{ error }}
+<template v-slot:actions>
+<v-btn
+variant="text"
+@click="closeError"
+>
+Close
+</v-btn>
+</template>
+</v-snackbar>
   </v-app>
 </template>
 
