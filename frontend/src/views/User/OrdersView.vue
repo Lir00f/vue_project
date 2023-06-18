@@ -7,7 +7,7 @@ export default {
           id: "123",
           name: "Юрий",
           phone: "+7(978)000-00-11",
-          adId: "0",
+          adId: "3",
           done: true,
         },
         {

@@ -56,6 +56,12 @@ const routes = [
     name: "about",
     component: AboutView,
   },
+  {
+    path:"/ad/:id",
+    props: true,
+    name:"ad",
+    component:AdView
+  }
 ];
 
 const router = createRouter({
