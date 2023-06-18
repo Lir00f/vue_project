@@ -1,40 +1,49 @@
 
 <script>
-export default {
-    data() {
-        return {
-            drawer: false,
-        }
-    },
-    computed: {
-     error () {
-       return this.$store.getters.error
-    },
-    isUserLoggedIn () {
-       return this.$store.getters.isUserLoggedIn
- },
- links(){
- if (this.isUserLoggedIn) {
- return [
- {title:"Пользователи",icon:"mdi-bookmark-multiple-outline", url:"/orders"},
- {title:"Новинки", icon:"mdi-note-plus-outline", url:"/new"},
- {title:"Корзина", icon:"mdi-view-list-outline", url:"/list"}
- ]
- } else {
- return [
- {title:"Войти", icon:"mdi-lock", url:"/login"},
- {title:"Зарегистрироваться",icon:"mdi-face",url:"/registration"},
- ]
- }
- }
- },
- methods: {
-     closeError () {
-       this.$store.dispatch('clearError')
-     }
+  export default {
+  data() {
+  return {
+  drawer: false,
   }
-   }
-</script>
+  
+  },
+  computed: {
+    error () {
+      return this.$store.getters.error
+   },
+   isUserLoggedIn () {
+      return this.$store.getters.isUserLoggedIn
+},
+links(){
+if (this.isUserLoggedIn) {
+return [
+{title:"Пользователи",icon:"mdi-bookmark-multiple-outline", url:"/orders"},
+{title:"Новинки", icon:"mdi-note-plus-outline", url:"/new"},
+{title:"Корзина", icon:"mdi-view-list-outline", url:"/list"}
+]
+} else {
+return [
+{title:"Войти", icon:"mdi-lock", url:"/login"},
+{title:"Зарегистрироваться",icon:"mdi-face",url:"/registration"},
+]
+}
+}
+
+
+},
+methods: {
+    closeError () {
+      this.$store.dispatch('clearError')
+    },
+    onLogout () {
+this.$store.dispatch('logoutUser')
+this.$router.push("/")
+}
+
+ }
+
+  }
+  </script>
 
 <template>
   <v-app>
@@ -53,33 +62,37 @@ export default {
     </v-navigation-drawer>
 
     <v-app-bar app dark color="primary">
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="headline">BMW - Ultimate Driving Experience</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn to="/" class="mr-4">
-          <v-icon left>mdi-home</v-icon>Home
-        </v-btn>
-        <v-btn to="/about" class="mr-4">
-          <v-icon left>mdi-information</v-icon>About Us
-        </v-btn>
-        <v-btn to="/list" class="mr-4">
-          <v-icon left>mdi-car</v-icon>Cars
-        </v-btn>
-        <v-btn to="/orders" class="mr-4">
-          <v-icon left>mdi-bookmark-multiple-outline</v-icon>Orders
-        </v-btn>
-        <v-btn to="/new" class="mr-4">
-          <v-icon left>mdi-note-plus-outline</v-icon>New
-        </v-btn>
-        <v-btn to="/login" class="mr-4">
-          <v-icon left>mdi-login</v-icon>Log In
-        </v-btn>
-        <v-btn to="/registration">
-          <v-icon left>mdi-face</v-icon>Sign In
-        </v-btn>
-      </v-toolbar-items>
-    </v-app-bar>
+  <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+  <v-toolbar-title>
+    <v-btn to="/">
+  НА ГЛАВНУЮ
+  </v-btn>
+  </v-toolbar-title>
+  
+  <v-spacer></v-spacer>
+  <v-toolbar-items class="hidden-sm-and-down">
+    <v-btn
+v-for="link in links"
+:key="link.title"
+:to="link.url"
+>
+<v-icon
+start
+:icon="link.icon"
+></v-icon>
+{{ link.title }}
+</v-btn>
+<v-btn @click="onLogout"
+v-if="isUserLoggedIn">
+<v-icon
+start
+icon="mdi-exit-to-app"
+></v-icon>
+Выйти
+</v-btn>
+  </v-toolbar-items>
+  
+  </v-app-bar>
 
     <v-main>
       <router-view></router-view>
