@@ -4,26 +4,36 @@ export default {
     data() {
         return {
             drawer: false,
-            links: [
-                { title: "About Us", icon: "mdi-information", url: "/about" },
-                { title: "Cars", icon: "mdi-car", url: "/cars" },
-                { title: "Orders", icon: "mdi-bookmark-multiple-outline", url: "/orders" },
-                { title: "Log In", icon: "mdi-login", url: "/login" },
-                { title: "Registration", icon: "mdi-face", url: "/registration" },
-            ]
         }
     },
     computed: {
-    error () {
-      return this.$store.getters.error
-   }
-},
-methods: {
-    closeError () {
-      this.$store.dispatch('clearError')
-    }
+     error () {
+       return this.$store.getters.error
+    },
+    isUserLoggedIn () {
+       return this.$store.getters.isUserLoggedIn
+ },
+ links(){
+ if (this.isUserLoggedIn) {
+ return [
+ {title:"Пользователи",icon:"mdi-bookmark-multiple-outline", url:"/orders"},
+ {title:"Новинки", icon:"mdi-note-plus-outline", url:"/new"},
+ {title:"Корзина", icon:"mdi-view-list-outline", url:"/list"}
+ ]
+ } else {
+ return [
+ {title:"Войти", icon:"mdi-lock", url:"/login"},
+ {title:"Зарегистрироваться",icon:"mdi-face",url:"/registration"},
+ ]
  }
-}
+ }
+ },
+ methods: {
+     closeError () {
+       this.$store.dispatch('clearError')
+     }
+  }
+   }
 </script>
 
 <template>
