@@ -13,7 +13,7 @@
                   </v-card-text>
                   <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn text class="warning">Изменить</v-btn>
+                  <modal-dialog :ad="ad" v-if="isOwner"></modal-dialog>
                   <v-btn class="success">Купить</v-btn>
                   </v-card-actions>	
               </v-card>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import EditAdModal from './EditAdModal'
 export default {
   props: ['id'],
   computed: {
@@ -30,6 +31,12 @@ export default {
           const id = this.id
           return this.$store.getters.adById(id)
       }
+  },
+  components: {
+  'modal-dialog': EditAdModal
+  },
+  isOwner () {
+return this.ad.ownerId === 	this.$store.getters.user.id
   }
 }
 </script>
