@@ -63,6 +63,12 @@ export default {
                     src: "https://hips.hearstapps.com/hmg-prod/images/2021-bmw-m4-manual-108-1619673989.jpg?crop=0.743xw:0.836xh;0.137xw,0.0489xh&resize=640:*"
                 };
                 this.$store.dispatch("createAd", ad)
+                .then(() => {
+                    this.$router.push("/list")
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
             }
         },
     },
