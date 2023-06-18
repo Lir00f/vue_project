@@ -1,5 +1,119 @@
+<template>
+  <v-app>
+  <v-navigation-drawer app v-model="drawer">
+  <v-list-item>
+  <v-list-item-content>
+  <v-list-item-title class="title">
+  BMW
+  </v-list-item-title>
+  <v-list-item-subtitle>
+  BMW - your success.
+  </v-list-item-subtitle>
+  </v-list-item-content>
+  </v-list-item>
+  <v-divider></v-divider>
+  <v-list dense>
+    <v-list-item
+v-for="link in links"
+:key="link.title"
+:to="link.url"
+>
+<template v-slot:prepend>
+<v-icon :icon="link.icon"></v-icon>
+</template>
+<v-list-item-title>{{ link.title }}</v-list-item-title>
+</v-list-item>
+<v-list-item
+@click="onLogout"
+v-if="isUserLoggedIn"
+>
+<template v-slot:prepend>
+<v-icon icon="mdi-exit-to-app"></v-icon>
+</template>
+<v-list-item-title>Выйти</v-list-item-title>
+</v-list-item>
 
-<script>
+
+  </v-list>
+  </v-navigation-drawer>
+  <v-app-bar app dark color="primary" class="no-bottom-spacing">
+  <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+  <v-toolbar-title>
+    <v-btn to="/">
+  На главную
+  </v-btn>
+  </v-toolbar-title>
+  
+  <v-spacer></v-spacer>
+  <v-toolbar-items class="hidden-sm-and-down">
+    <v-btn
+v-for="link in links"
+:key="link.title"
+:to="link.url"
+>
+<v-icon
+start
+:icon="link.icon"
+></v-icon>
+{{ link.title }}
+</v-btn>
+<v-btn @click="onLogout"
+v-if="isUserLoggedIn">
+<v-icon
+start
+icon="mdi-exit-to-app"
+></v-icon>
+Выйти
+</v-btn>
+  </v-toolbar-items>
+  
+  </v-app-bar>
+  <v-toolbar-items class="hidden-sm-and-down">
+<v-btn
+
+v-for="link in links"
+:key="link.title"
+:to="link.url"
+>
+<v-icon
+start
+:icon="link.icon"
+></v-icon>
+{{ link.title }}
+</v-btn>
+
+</v-toolbar-items>
+
+  
+  <v-main>
+<router-view></router-view>
+</v-main>
+<v-snackbar
+v-model="error"
+multi-line
+:timeout="2000"
+color="primary"
+>
+{{ error }}
+<template v-slot:actions>
+<v-btn
+variant="text"
+@click="closeError"
+>
+Закрыть
+</v-btn>
+</template>
+</v-snackbar>
+  </v-app>
+  </template>
+  
+  <style scoped>
+.no-bottom-spacing .v-app-bar {
+  margin-bottom: 0;
+}
+</style>
+  
+  <script>
   export default {
   data() {
   return {
@@ -44,121 +158,5 @@ this.$router.push("/")
 
   }
   </script>
-
-<template>
-  <v-app>
-    <v-navigation-drawer app v-model="drawer">
-      <v-list dense>
-        <v-list-item
-          v-for="link in links"
-          :key="link.title"
-          :to="link.url"
-          @click="drawer = false"
-        >
-          <v-icon :icon="link.icon"></v-icon>
-          <v-list-item-title>{{ link.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar app dark color="primary">
-  <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-  <v-toolbar-title>
-    <v-btn to="/">
-  НА ГЛАВНУЮ
-  </v-btn>
-  </v-toolbar-title>
-  
-  <v-spacer></v-spacer>
-  <v-toolbar-items class="hidden-sm-and-down">
-    <v-btn
-v-for="link in links"
-:key="link.title"
-:to="link.url"
->
-<v-icon
-start
-:icon="link.icon"
-></v-icon>
-{{ link.title }}
-</v-btn>
-<v-btn @click="onLogout"
-v-if="isUserLoggedIn">
-<v-icon
-start
-icon="mdi-exit-to-app"
-></v-icon>
-Выйти
-</v-btn>
-  </v-toolbar-items>
-  
-  </v-app-bar>
-
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-    <v-snackbar
-v-model="error"
-multi-line
-:timeout="2000"
-color="primary"
->
-{{ error }}
-<template v-slot:actions>
-<v-btn
-variant="text"
-@click="closeError"
->
-Close
-</v-btn>
-</template>
-</v-snackbar>
-  </v-app>
-</template>
-
-<style>
-::-webkit-scrollbar {
-  display: none;
-}
-
-.headline {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 2vh;
-}
-
-.v-app-bar {
-  background-color: rgb(123, 85, 237); /* Цвет фона хэддера */
-  box-shadow: none;
-}
-
-.v-app-bar .v-btn {
-  color: #ffffff; /* Цвет текста кнопок */
-}
-
-.v-app-bar .v-btn:hover {
-  color: #e1e1e1; /* Цвет текста кнопок при наведении */
-}
-
-.v-navigation-drawer .v-list-item-title {
-  color: #000000; /* Цвет текста ссылок в навигационном ящике */
-}
-
-.v-app-bar {
-  background-color: #1976d2; /* Цвет фона хэддера */
-  box-shadow: none;
-}
-
-.v-app-bar .v-btn {
-  color: #ffffff; /* Цвет текста кнопок */
-}
-
-.v-app-bar .v-btn:hover {
-  color: #e1e1e1; /* Цвет текста кнопок при наведении */
-}
-
-.v-navigation-drawer .v-list-item-title {
-  color: #000000; /* Цвет текста ссылок в навигационном ящике */
-}
-
+<style scoped>
 </style>
