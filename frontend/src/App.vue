@@ -49,6 +49,9 @@ export default {
         <v-btn to="/orders" class="mr-4">
           <v-icon left>mdi-bookmark-multiple-outline</v-icon>Orders
         </v-btn>
+        <v-btn to="/new" class="mr-4">
+          <v-icon left>mdi-note-plus-outline</v-icon>New
+        </v-btn>
         <v-btn to="/login" class="mr-4">
           <v-icon left>mdi-login</v-icon>Log In
         </v-btn>
